@@ -15,12 +15,14 @@ class _NavMenuState extends State<NavMenu> {
   bool _isAnalytics = false;
   bool _isUsers = false;
   bool _isEmployee = false;
+  bool _isChat = false;
 
   void _onTapAnalytics() {
     setState(() {
       _isAnalytics = !_isAnalytics;
       _isUsers = false;
       _isEmployee = false;
+      _isChat = false;
     });
   }
 
@@ -28,12 +30,23 @@ class _NavMenuState extends State<NavMenu> {
     setState(() {
       _isUsers = !_isUsers;
       _isAnalytics = false;
+      _isChat = false;
     });
   }
 
   void _onTapEmployee() {
     setState(() {
       _isEmployee = !_isEmployee;
+      _isAnalytics = false;
+      _isUsers = false;
+      _isChat = false;
+    });
+  }
+
+  void _onTapChat() {
+    setState(() {
+      _isChat = !_isChat;
+      _isEmployee = false;
       _isAnalytics = false;
       _isUsers = false;
     });
@@ -77,6 +90,12 @@ class _NavMenuState extends State<NavMenu> {
               icon: const Icon(Icons.people_outline),
               onTap: _onTapEmployee,
               isChoosed: _isEmployee,
+            ),
+            NavMenuTile(
+              label: 'Чат',
+              icon: const Icon(Icons.chat),
+              onTap: _onTapChat,
+              isChoosed: _isChat,
             ),
           ],
         ),
