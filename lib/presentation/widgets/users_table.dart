@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/users_data.dart';
 
+/// Таблица данных пользователей
 class UsersTable extends StatefulWidget {
   final List<UserData> data;
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/home_page.dart';
 
+/// Страница авторизации администратора
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
@@ -14,9 +16,14 @@ class _AuthPageState extends State<AuthPage> {
   final TextEditingController loginController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  // Обработка текстовых полей логин и пароль
   void _onLoginPressed() {
     _login = loginController.text.trim();
     _password = passwordController.text.trim();
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+          builder: (BuildContext context) => const HomePage()),
+    );
   }
 
   @override
@@ -24,6 +31,7 @@ class _AuthPageState extends State<AuthPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Авторизация'),
+        centerTitle: true,
         backgroundColor: const Color.fromRGBO(44, 60, 86, 1),
       ),
       body: Center(
@@ -59,7 +67,7 @@ class _AuthPageState extends State<AuthPage> {
                   labelText: 'Пароль',
                   labelStyle: TextStyle(color: Colors.grey[400]),
                   floatingLabelStyle:
-                      TextStyle(color: Colors.grey[400], fontSize: 20),
+                      TextStyle(color: Colors.grey[400]),
                   filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -77,7 +85,8 @@ class _AuthPageState extends State<AuthPage> {
               style: ElevatedButton.styleFrom(
                 textStyle: const TextStyle(fontSize: 20),
                 primary: const Color.fromRGBO(44, 60, 86, 1),
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
