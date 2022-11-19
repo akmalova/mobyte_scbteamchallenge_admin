@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/home_page.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 
 /// Страница авторизации администратора
 class AuthPage extends StatefulWidget {
@@ -44,8 +45,8 @@ class _AuthPageState extends State<AuthPage> {
                 controller: loginController,
                 decoration: InputDecoration(
                   labelText: 'Логин',
-                  labelStyle: TextStyle(color: Colors.grey[400]),
-                  floatingLabelStyle: TextStyle(color: Colors.grey[400]),
+                  labelStyle: const TextStyle(color: AppColors.grey),
+                  floatingLabelStyle: const TextStyle(color: AppColors.grey),
                   filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -65,9 +66,8 @@ class _AuthPageState extends State<AuthPage> {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: 'Пароль',
-                  labelStyle: TextStyle(color: Colors.grey[400]),
-                  floatingLabelStyle:
-                      TextStyle(color: Colors.grey[400]),
+                  labelStyle: const TextStyle(color: AppColors.grey),
+                  floatingLabelStyle: const TextStyle(color: AppColors.grey),
                   filled: true,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
@@ -84,7 +84,7 @@ class _AuthPageState extends State<AuthPage> {
               onPressed: _onLoginPressed,
               style: ElevatedButton.styleFrom(
                 textStyle: const TextStyle(fontSize: 20),
-                primary: const Color.fromRGBO(44, 60, 86, 1),
+                primary: AppColors.darkBlue1,
                 padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 shape: RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/users_data.dart';
 
 /// Таблица данных пользователей
@@ -20,7 +21,7 @@ class _UsersTableState extends State<UsersTable> {
         vertical: 10,
       ),
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: DataTable(

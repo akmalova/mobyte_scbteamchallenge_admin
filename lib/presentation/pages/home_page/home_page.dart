@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     }
     super.initState();
   }
-  
+
   // Обработка нажатий на пункты меню
   void _pushMenu(Tabs tabs) {
     setState(() {
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           : IconButton(
                               icon: const Icon(
                                 Icons.menu,
-                                color: AppColors.grey,
+                                color: AppColors.darkBlue1,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -77,17 +77,6 @@ class _HomePageState extends State<HomePage> {
                                 });
                               },
                             ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.exit_to_app,
-                          color: AppColors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isOpen = !_isOpen;
-                          });
-                        },
-                      ),
                     ],
                   ),
                 ),
