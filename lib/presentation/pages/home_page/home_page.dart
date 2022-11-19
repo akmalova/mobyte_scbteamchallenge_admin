@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/current_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
+/// Основная страница приложения
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -18,6 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    // В мобильном веб приложении меню по умолчанию скрыто
     if (defaultTargetPlatform == TargetPlatform.iOS ||
         defaultTargetPlatform == TargetPlatform.android) {
       _isOpen = true;
@@ -27,12 +30,14 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  // Обработка нажатий на пункты меню
   void _pushMenu(Tabs tabs) {
     setState(() {
       _tabs = tabs;
     });
   }
 
+  // Обработка нажатия на кнопку открыть/закрыть меню
   void _back() {
     setState(() {
       _isOpen = !_isOpen;
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(10.r),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -65,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                           : IconButton(
                               icon: const Icon(
                                 Icons.menu,
-                                color: AppColors.grey,
+                                color: AppColors.darkBlue1,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -73,17 +78,6 @@ class _HomePageState extends State<HomePage> {
                                 });
                               },
                             ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.exit_to_app,
-                          color: AppColors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isOpen = !_isOpen;
-                          });
-                        },
-                      ),
                     ],
                   ),
                 ),

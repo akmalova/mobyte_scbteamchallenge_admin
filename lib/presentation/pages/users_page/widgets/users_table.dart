@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/users_data.dart';
 
+/// Таблица данных пользователей
 class UsersTable extends StatefulWidget {
   final List<UserData> data;
 
@@ -14,23 +18,23 @@ class _UsersTableState extends State<UsersTable> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
+      padding: EdgeInsets.symmetric(
+        horizontal: 20.w,
+        vertical: 10.h,
       ),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.all(Radius.circular(10.r)),
       ),
       child: DataTable(
         columns: const <DataColumn>[
           DataColumn(
             label: Expanded(
               child: Text(
-                'ФИО',
+                AppStrings.name,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(97, 97, 97, 1),
+                  color: AppColors.darkGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -39,10 +43,10 @@ class _UsersTableState extends State<UsersTable> {
           DataColumn(
             label: Expanded(
               child: Text(
-                'Телефон',
+                AppStrings.phone,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(97, 97, 97, 1),
+                  color: AppColors.darkGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -51,10 +55,10 @@ class _UsersTableState extends State<UsersTable> {
           DataColumn(
             label: Expanded(
               child: Text(
-                'Почта',
+                AppStrings.phone,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(97, 97, 97, 1),
+                  color: AppColors.darkGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -63,10 +67,10 @@ class _UsersTableState extends State<UsersTable> {
           DataColumn(
             label: Expanded(
               child: Text(
-                'Регистрация',
+                AppStrings.registration,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(97, 97, 97, 1),
+                  color: AppColors.darkGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -78,7 +82,7 @@ class _UsersTableState extends State<UsersTable> {
                 '',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(97, 97, 97, 1),
+                  color: AppColors.darkGrey,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -99,25 +103,25 @@ class _UsersTableState extends State<UsersTable> {
             DataCell(Text(
               userData.name,
               style: const TextStyle(
-                color: Color.fromRGBO(97, 97, 97, 1),
+                color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
               userData.phone,
               style: const TextStyle(
-                color: Color.fromRGBO(97, 97, 97, 1),
+                color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
               userData.email,
               style: const TextStyle(
-                color: Color.fromRGBO(97, 97, 97, 1),
+                color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
               userData.registrationDate,
               style: const TextStyle(
-                color: Color.fromRGBO(97, 97, 97, 1),
+                color: AppColors.darkGrey,
               ),
             )),
             DataCell(
@@ -129,16 +133,16 @@ class _UsersTableState extends State<UsersTable> {
                 },
                 child: userData.isBlocked
                     ? const Text(
-                        'Заблокировать',
+                        AppStrings.lock,
                         style: TextStyle(
-                          color: Colors.red,
+                          color: AppColors.red,
                           fontSize: 13,
                         ),
                       )
                     : const Text(
-                        'Разблокировать',
+                        AppStrings.unlock,
                         style: TextStyle(
-                          color: Colors.green,
+                          color: AppColors.green,
                           fontSize: 13,
                         ),
                       ),

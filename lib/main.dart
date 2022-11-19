@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/pages/auth_page/auth_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
             ),
             child: MaterialApp(
               title: 'Monetochka',
-              home: HomePage(),
+              home: AuthPage(),
             ),
           );
         });

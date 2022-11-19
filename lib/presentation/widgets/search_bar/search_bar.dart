@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _SearchBarState extends State<SearchBar> {
       onPressed: () {
         showSearch(context: context, delegate: CustomSearchDelegate());
       },
-      icon: const Icon(Icons.search),
+      icon: const Icon(Icons.search, color: AppColors.darkGrey),
     );
   }
 }

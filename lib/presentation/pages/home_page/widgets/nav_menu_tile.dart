@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
+/// Вкладка навигационного меню
 class NavMenuTile extends StatefulWidget {
   final String label;
   final Widget icon;
@@ -30,14 +32,14 @@ class _NavMenuTileState extends State<NavMenuTile> {
         widget.isChoosed
             ? Container(
                 color: AppColors.red,
-                width: 5,
-                height: 50,
+                width: 5.w,
+                height: 70.h,
               )
             : Container(),
         Expanded(
           child: Container(
-            color: widget.isChoosed ? AppColors.darkBlue2 : Colors.transparent,
-            height: 50,
+            color: widget.isChoosed ? AppColors.darkBlue2 : AppColors.tranparent,
+            height: 70.h,
             child: ListTile(
               horizontalTitleGap: 0,
               title: Text(
@@ -59,7 +61,9 @@ class _NavMenuTileState extends State<NavMenuTile> {
       ],
     );
   }
-
+  
+  // Функция для нахождения оптимального размера шрифта в зависмости
+  // от ширины экрана
   double _getLabelsSize() {
     double labelSize;
     double screenWidth = MediaQuery.of(context).size.width;

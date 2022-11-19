@@ -3,6 +3,7 @@ import 'package:mobyte_scbteamchallenge_admin/presentation/pages/chat_page/chat_
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/users_page/users_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
+/// Класс, определяющий какую страницу необходимо отобразить
 class CurrentPage extends StatelessWidget {
   final Tabs tabs;
   const CurrentPage({Key? key, required this.tabs}) : super(key: key);
@@ -17,7 +18,7 @@ class CurrentPage extends StatelessWidget {
       case Tabs.employee:
         return Container();
       case Tabs.users:
-        return const UsersPage();
+        return UsersPage();
       default:
         return Container();
     }

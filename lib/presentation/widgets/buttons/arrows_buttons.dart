@@ -22,7 +22,7 @@ class ArrowsButtons extends StatelessWidget {
             onTap: onTapUp,
             child: Icon(
               Icons.arrow_drop_up_outlined,
-              size: 25.r,
+              size: 18.r,
               color: AppColors.darkGrey,
             ),
           ),
@@ -33,7 +33,7 @@ class ArrowsButtons extends StatelessWidget {
             onTap: onTapDown,
             child: Icon(
               Icons.arrow_drop_down_outlined,
-              size: 25.r,
+              size: 18.r,
               color: AppColors.darkGrey,
             ),
           ),

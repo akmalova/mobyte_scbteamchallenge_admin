@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/widgets/counters/items_counter.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/widgets/search_bar/search_bar.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_textstyles.dart';
 
 class AppBarClients extends StatelessWidget {
@@ -24,7 +26,7 @@ class AppBarClients extends StatelessWidget {
         ),
         SizedBox(width: 10.w),
         Text(
-          "Всего: $numberClients",
+          "${AppStrings.total}: $numberClients",
           style: AppTextStyles.appBarClientTextStyle,
         ),
         const Spacer(),
