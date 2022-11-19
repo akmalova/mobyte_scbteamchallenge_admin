@@ -134,15 +134,15 @@ class _NavMenuState extends State<NavMenu> {
   double _getTitleSize() {
     double titleSize;
     double screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth >= 550) {
+    if (screenWidth >= 750) {
       titleSize = 20;
-    } else if (screenWidth >= 495) {
+    } else if (screenWidth >= 690) {
       titleSize = 18;
-    } else if (screenWidth >= 440) {
+    } else if (screenWidth >= 630) {
       titleSize = 16;
-    } else if (screenWidth >= 385) {
+    } else if (screenWidth >= 565) {
       titleSize = 14;
-    } else if (screenWidth >= 335) {
+    } else if (screenWidth >= 505) {
       titleSize = 12;
     } else {
       titleSize = 10;
