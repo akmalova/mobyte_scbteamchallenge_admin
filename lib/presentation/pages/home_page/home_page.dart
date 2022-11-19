@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/current_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late bool _isOpen;
+  Tabs _tabs = Tabs.analytics;
 
   @override
   void initState() {
@@ -24,12 +27,18 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  void _pushMenu(Tabs tabs) {
+    setState(() {
+      _tabs = tabs;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
         children: [
-          _isOpen ? const NavMenu() : Container(),
+          _isOpen ? NavMenu(tabs: _tabs, onTap: _pushMenu) : Container(),
           Expanded(
             flex: 4,
             child: Column(
@@ -63,6 +72,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+                ),
+                Expanded(
+                  child: CurrentPage(tabs: _tabs),
                 ),
               ],
             ),

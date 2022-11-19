@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu_tile.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class NavMenu extends StatefulWidget {
+  final Tabs tabs;
+  final void Function(Tabs) onTap;
+
   const NavMenu({
     Key? key,
+    required this.tabs,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -12,45 +18,46 @@ class NavMenu extends StatefulWidget {
 }
 
 class _NavMenuState extends State<NavMenu> {
-  bool _isAnalytics = false;
-  bool _isUsers = false;
-  bool _isEmployee = false;
-  bool _isChat = false;
+  // bool _isAnalytics = false;
+  // bool _isUsers = false;
+  // bool _isEmployee = false;
+  // bool _isChat = false;
 
-  void _onTapAnalytics() {
-    setState(() {
-      _isAnalytics = !_isAnalytics;
-      _isUsers = false;
-      _isEmployee = false;
-      _isChat = false;
-    });
-  }
+  // void _onTapAnalytics() {
+  //   setState(() {
+  //     _isAnalytics = true;
+  //     _isUsers = false;
+  //     _isEmployee = false;
+  //     _isChat = false;
+  //   });
+  // }
 
-  void _onTapUsers() {
-    setState(() {
-      _isUsers = !_isUsers;
-      _isAnalytics = false;
-      _isChat = false;
-    });
-  }
+  // void _onTapUsers() {
+  //   setState(() {
+  //     _isUsers = true;
+  //     _isAnalytics = false;
+  //     _isEmployee = false;
+  //     _isChat = false;
+  //   });
+  // }
 
-  void _onTapEmployee() {
-    setState(() {
-      _isEmployee = !_isEmployee;
-      _isAnalytics = false;
-      _isUsers = false;
-      _isChat = false;
-    });
-  }
+  // void _onTapEmployee() {
+  //   setState(() {
+  //     _isEmployee = true;
+  //     _isAnalytics = false;
+  //     _isUsers = false;
+  //     _isChat = false;
+  //   });
+  // }
 
-  void _onTapChat() {
-    setState(() {
-      _isChat = !_isChat;
-      _isEmployee = false;
-      _isAnalytics = false;
-      _isUsers = false;
-    });
-  }
+  // void _onTapChat() {
+  //   setState(() {
+  //     _isChat = true;
+  //     _isEmployee = false;
+  //     _isAnalytics = false;
+  //     _isUsers = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -76,26 +83,30 @@ class _NavMenuState extends State<NavMenu> {
             NavMenuTile(
               label: 'Аналитика',
               icon: const Icon(Icons.analytics_outlined),
-              onTap: _onTapAnalytics,
-              isChoosed: _isAnalytics,
+              onTap: widget.onTap,
+              tabs: Tabs.analytics,
+              isChoosed: widget.tabs == Tabs.analytics,
             ),
             NavMenuTile(
               label: 'Пользователи',
               icon: const Icon(Icons.people),
-              onTap: _onTapUsers,
-              isChoosed: _isUsers,
+              onTap: widget.onTap,
+              tabs: Tabs.users,
+              isChoosed: widget.tabs == Tabs.users,
             ),
             NavMenuTile(
               label: 'Сотрудники',
               icon: const Icon(Icons.people_outline),
-              onTap: _onTapEmployee,
-              isChoosed: _isEmployee,
+              onTap: widget.onTap,
+              tabs: Tabs.employee,
+              isChoosed: widget.tabs == Tabs.employee,
             ),
             NavMenuTile(
               label: 'Чат',
               icon: const Icon(Icons.chat),
-              onTap: _onTapChat,
-              isChoosed: _isChat,
+              onTap: widget.onTap,
+              tabs: Tabs.chat,
+              isChoosed: widget.tabs == Tabs.chat,
             ),
           ],
         ),

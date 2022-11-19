@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class NavMenuTile extends StatefulWidget {
   final String label;
   final Widget icon;
-  final VoidCallback onTap;
+  final void Function(Tabs) onTap;
+  final Tabs tabs;
   final bool isChoosed;
-
 
   const NavMenuTile({
     Key? key,
@@ -14,6 +15,7 @@ class NavMenuTile extends StatefulWidget {
     required this.icon,
     required this.onTap,
     required this.isChoosed,
+    required this.tabs,
   }) : super(key: key);
 
   @override
@@ -48,7 +50,9 @@ class _NavMenuTileState extends State<NavMenuTile> {
               ),
               leading: widget.icon,
               iconColor: widget.isChoosed ? AppColors.white : AppColors.grey,
-              onTap: widget.onTap,
+              onTap: () {
+                widget.onTap(widget.tabs);
+              },
             ),
           ),
         ),
@@ -56,7 +60,7 @@ class _NavMenuTileState extends State<NavMenuTile> {
     );
   }
 
-   double _getLabelsSize() {
+  double _getLabelsSize() {
     double labelSize;
     double screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth >= 830) {
@@ -67,7 +71,7 @@ class _NavMenuTileState extends State<NavMenuTile> {
       labelSize = 10;
     } else if (screenWidth >= 620) {
       labelSize = 8;
-    }else {
+    } else {
       labelSize = 0;
     }
     return labelSize;
