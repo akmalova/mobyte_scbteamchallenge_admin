@@ -33,12 +33,24 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _back() {
+    setState(() {
+      _isOpen = !_isOpen;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
         children: [
-          _isOpen ? NavMenu(tabs: _tabs, onTap: _pushMenu) : Container(),
+          _isOpen
+              ? NavMenu(
+                  tabs: _tabs,
+                  onTap: _pushMenu,
+                  onTapArrow: _back,
+                )
+              : Container(),
           Expanded(
             flex: 4,
             child: Column(
@@ -48,17 +60,19 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.menu,
-                          color: AppColors.grey,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isOpen = !_isOpen;
-                          });
-                        },
-                      ),
+                      _isOpen
+                          ? Container()
+                          : IconButton(
+                              icon: const Icon(
+                                Icons.menu,
+                                color: AppColors.grey,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _isOpen = !_isOpen;
+                                });
+                              },
+                            ),
                       IconButton(
                         icon: const Icon(
                           Icons.exit_to_app,

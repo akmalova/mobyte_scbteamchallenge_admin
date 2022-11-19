@@ -6,11 +6,13 @@ import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 class NavMenu extends StatefulWidget {
   final Tabs tabs;
   final void Function(Tabs) onTap;
+  final VoidCallback onTapArrow;
 
   const NavMenu({
     Key? key,
     required this.tabs,
     required this.onTap,
+    required this.onTapArrow,
   }) : super(key: key);
 
   @override
@@ -18,47 +20,6 @@ class NavMenu extends StatefulWidget {
 }
 
 class _NavMenuState extends State<NavMenu> {
-  // bool _isAnalytics = false;
-  // bool _isUsers = false;
-  // bool _isEmployee = false;
-  // bool _isChat = false;
-
-  // void _onTapAnalytics() {
-  //   setState(() {
-  //     _isAnalytics = true;
-  //     _isUsers = false;
-  //     _isEmployee = false;
-  //     _isChat = false;
-  //   });
-  // }
-
-  // void _onTapUsers() {
-  //   setState(() {
-  //     _isUsers = true;
-  //     _isAnalytics = false;
-  //     _isEmployee = false;
-  //     _isChat = false;
-  //   });
-  // }
-
-  // void _onTapEmployee() {
-  //   setState(() {
-  //     _isEmployee = true;
-  //     _isAnalytics = false;
-  //     _isUsers = false;
-  //     _isChat = false;
-  //   });
-  // }
-
-  // void _onTapChat() {
-  //   setState(() {
-  //     _isChat = true;
-  //     _isEmployee = false;
-  //     _isAnalytics = false;
-  //     _isUsers = false;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -69,15 +30,29 @@ class _NavMenuState extends State<NavMenu> {
           children: [
             Container(
               alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 25),
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
               color: AppColors.red,
-              child: Text(
-                'Монеточка',
-                style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: _getTitleSize(),
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Монеточка',
+                    style: TextStyle(
+                      color: AppColors.white,
+                      fontSize: _getTitleSize(),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      widget.onTapArrow();
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
             NavMenuTile(
