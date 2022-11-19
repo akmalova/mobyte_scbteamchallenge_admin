@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/chat_page/chat_page.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/widgets/clients_app_bar/clients_app_bar.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class CurrentPage extends StatelessWidget {
@@ -16,7 +17,7 @@ class CurrentPage extends StatelessWidget {
       case Tabs.employee:
         return Container();
       case Tabs.users:
-        return Container();
+        return const AppBarClients(numberClients: 367, listClients: []);
       default:
         return Container();
     }
