@@ -1,5 +1,5 @@
 class RoleModel {
-  final String id;
+  final int id;
   final String title;
   final String constt;
 

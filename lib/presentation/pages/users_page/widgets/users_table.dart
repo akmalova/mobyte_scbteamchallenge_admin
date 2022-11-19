@@ -43,7 +43,7 @@ class _UsersTableState extends State<UsersTable> {
           DataColumn(
             label: Expanded(
               child: Text(
-                AppStrings.phone,
+                AppStrings.email,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: AppColors.darkGrey,

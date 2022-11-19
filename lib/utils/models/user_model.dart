@@ -1,7 +1,7 @@
 import 'package:mobyte_scbteamchallenge_admin/utils/models/role_model.dart';
 
 class UserModel {
-  final String id;
+  final int id;
   final String email;
   final String name;
   final String phone;
