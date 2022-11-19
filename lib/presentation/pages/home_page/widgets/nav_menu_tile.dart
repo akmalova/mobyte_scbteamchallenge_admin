@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
 
-class NavMenuTile extends StatelessWidget {
+class NavMenuTile extends StatefulWidget {
   final String label;
   final Widget icon;
   final VoidCallback onTap;
   final bool isChoosed;
+
 
   const NavMenuTile({
     Key? key,
@@ -16,10 +17,15 @@ class NavMenuTile extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<NavMenuTile> createState() => _NavMenuTileState();
+}
+
+class _NavMenuTileState extends State<NavMenuTile> {
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        isChoosed
+        widget.isChoosed
             ? Container(
                 color: AppColors.red,
                 width: 5,
@@ -28,24 +34,42 @@ class NavMenuTile extends StatelessWidget {
             : Container(),
         Expanded(
           child: Container(
-            color: isChoosed ? AppColors.darkBlue2 : Colors.transparent,
+            color: widget.isChoosed ? AppColors.darkBlue2 : Colors.transparent,
             height: 50,
             child: ListTile(
+              horizontalTitleGap: 0,
               title: Text(
-                label,
+                widget.label,
                 style: TextStyle(
-                  color: isChoosed ? AppColors.white : AppColors.grey,
-                  fontSize: 14,
+                  color: widget.isChoosed ? AppColors.white : AppColors.grey,
+                  fontSize: _getLabelsSize(),
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              leading: icon,
-              iconColor: isChoosed ? AppColors.white : AppColors.grey,
-              onTap: onTap,
+              leading: widget.icon,
+              iconColor: widget.isChoosed ? AppColors.white : AppColors.grey,
+              onTap: widget.onTap,
             ),
           ),
         ),
       ],
     );
+  }
+
+   double _getLabelsSize() {
+    double labelSize;
+    double screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth >= 830) {
+      labelSize = 14;
+    } else if (screenWidth >= 760) {
+      labelSize = 12;
+    } else if (screenWidth >= 690) {
+      labelSize = 10;
+    } else if (screenWidth >= 620) {
+      labelSize = 8;
+    }else {
+      labelSize = 0;
+    }
+    return labelSize;
   }
 }

@@ -51,11 +51,11 @@ class _NavMenuState extends State<NavMenu> {
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(vertical: 25),
               color: AppColors.red,
-              child: const Text(
+              child: Text(
                 'Монеточка',
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 20,
+                  fontSize: _getTitleSize(),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -82,5 +82,24 @@ class _NavMenuState extends State<NavMenu> {
         ),
       ),
     );
+  }
+
+  double _getTitleSize() {
+    double titleSize;
+    double screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth >= 550) {
+      titleSize = 20;
+    } else if (screenWidth >= 495) {
+      titleSize = 18;
+    } else if (screenWidth >= 440) {
+      titleSize = 16;
+    } else if (screenWidth >= 385) {
+      titleSize = 14;
+    } else if (screenWidth >= 335) {
+      titleSize = 12;
+    } else {
+      titleSize = 10;
+    }
+    return titleSize;
   }
 }
