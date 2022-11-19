@@ -42,7 +42,7 @@ class _AuthPageState extends State<AuthPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 330.w,
+              width: 700.w,
               child: TextField(
                 controller: loginController,
                 decoration: InputDecoration(
@@ -62,7 +62,7 @@ class _AuthPageState extends State<AuthPage> {
             ),
             SizedBox(height: 20.h),
             SizedBox(
-              width: 330.w,
+              width: 700.w,
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -85,7 +85,7 @@ class _AuthPageState extends State<AuthPage> {
             ElevatedButton(
               onPressed: _onLoginPressed,
               style: ElevatedButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
+                textStyle: TextStyle(fontSize: 18),
                 primary: AppColors.darkBlue1,
                 padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 50.w),
                 shape: RoundedRectangleBorder(
