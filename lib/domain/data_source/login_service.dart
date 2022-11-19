@@ -52,10 +52,12 @@ class LoginService {
   }
 
   Future<List<UserModel>> usersList(
-      String? string, int? page, int? perPage) async {
+      String? string, int page, int perPage) async {
     Response response = await dio.get(
       url + '/api/user',
-      queryParameters: {"search": string, "page": page, "per_page": perPage},
+      queryParameters: string == null
+          ? {"page": page, "per_page": perPage}
+          : {"search": string, "page": page, "per_page": perPage},
       options: Options(
         method: 'GET',
         headers: {"Authorization": "Bearer $token"},
@@ -67,7 +69,7 @@ class LoginService {
     List<UserModel> usersList = [];
     for (var user in users) {
       var role = user['role'];
-      user = UserModel(
+      UserModel userModel = UserModel(
         id: user['id'],
         name: user['name'],
         phone: user['phone'],
@@ -77,10 +79,10 @@ class LoginService {
         role: RoleModel(
           role['id'],
           role['title'],
-          role['constt'],
+          role['const'],
         ),
       );
-      usersList.add(user);
+      usersList.add(userModel);
     }
     return usersList;
   }

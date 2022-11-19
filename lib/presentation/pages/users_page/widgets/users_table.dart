@@ -6,9 +6,9 @@ import 'package:mobyte_scbteamchallenge_admin/utils/models/user_model.dart';
 
 /// Таблица данных пользователей
 class UsersTable extends StatefulWidget {
-  final List<UserModel> data;
+  final List<UserModel> usersList;
 
-  const UsersTable({Key? key, required this.data}) : super(key: key);
+  const UsersTable({Key? key, required this.usersList}) : super(key: key);
 
   @override
   State<UsersTable> createState() => _UsersTableState();
@@ -96,7 +96,7 @@ class _UsersTableState extends State<UsersTable> {
 
   List<DataRow> _buildRows() {
     List<DataRow> rows = [];
-    for (UserModel userModel in widget.data) {
+    for (UserModel userModel in widget.usersList) {
       rows.add(
         DataRow(
           cells: <DataCell>[
@@ -107,13 +107,13 @@ class _UsersTableState extends State<UsersTable> {
               ),
             )),
             DataCell(Text(
-              userModel.phone,
+              userModel.email,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
-              userModel.email,
+              userModel.phone,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
@@ -131,7 +131,7 @@ class _UsersTableState extends State<UsersTable> {
                     userModel.isBlocked = !userModel.isBlocked;
                   });
                 },
-                child: userModel.isBlocked
+                child: !userModel.isBlocked
                     ? const Text(
                         AppStrings.lock,
                         style: TextStyle(

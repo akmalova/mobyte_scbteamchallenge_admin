@@ -5,7 +5,6 @@ import 'package:mobyte_scbteamchallenge_admin/cubit/login_cubit.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/home_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
-import 'package:mobyte_scbteamchallenge_admin/utils/models/login_model.dart';
 
 /// Страница авторизации администратора
 class AuthPage extends StatefulWidget {

@@ -32,8 +32,12 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  Future<void> usersList(String? string, int? page, int? perPage) async {
+  Future<List<UserModel>> usersList(
+      String? string, int page, int perPage) async {
+    emit(ListInProgress());
     List<UserModel> usersList =
         await loginService.usersList(string, page, perPage);
+    emit(ListSuccess());
+    return usersList;
   }
 }

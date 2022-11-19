@@ -40,8 +40,6 @@ class _NavMenuState extends State<NavMenu> {
             MaterialPageRoute<void>(
                 builder: (BuildContext context) => const AuthPage()),
           );
-        } else if (state is LogoutError) {
-          // TODO
         }
       },
       child: Expanded(

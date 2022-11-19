@@ -15,3 +15,7 @@ class LogoutSuccess extends LoginState {}
 
 class LogoutError extends LoginState {}
 
+class ListInProgress extends LoginState{}
+
+class ListSuccess extends LoginState{}
+
