@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/users_data.dart';
 
-class UsersTable extends StatelessWidget {
+class UsersTable extends StatefulWidget {
   final List<UserData> data;
 
   const UsersTable({Key? key, required this.data}) : super(key: key);
 
-  void onTap() {}
+  @override
+  State<UsersTable> createState() => _UsersTableState();
+}
 
+class _UsersTableState extends State<UsersTable> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,7 +92,7 @@ class UsersTable extends StatelessWidget {
 
   List<DataRow> _buildRows() {
     List<DataRow> rows = [];
-    for (UserData userData in data) {
+    for (UserData userData in widget.data) {
       rows.add(
         DataRow(
           cells: <DataCell>[
@@ -119,7 +122,11 @@ class UsersTable extends StatelessWidget {
             )),
             DataCell(
               GestureDetector(
-                onTap: onTap,
+                onTap: () {
+                  setState(() {
+                    userData.isBlocked = !userData.isBlocked;
+                  });
+                },
                 child: userData.isBlocked
                     ? const Text(
                         'Заблокировать',
