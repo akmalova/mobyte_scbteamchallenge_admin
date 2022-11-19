@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/chat_page/chat_page.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/pages/users_page/users_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 /// Класс, определяющий какую страницу необходимо отобразить
@@ -17,7 +18,7 @@ class CurrentPage extends StatelessWidget {
       case Tabs.employee:
         return Container();
       case Tabs.users:
-        return Container();
+        return const UsersPage();
       default:
         return Container();
     }
