@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu_tile.dart';
-import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class NavMenu extends StatefulWidget {

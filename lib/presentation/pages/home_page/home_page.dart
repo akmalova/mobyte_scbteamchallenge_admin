@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/current_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu.dart';
-import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 class HomePage extends StatefulWidget {
