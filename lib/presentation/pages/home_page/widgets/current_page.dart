@@ -18,7 +18,7 @@ class CurrentPage extends StatelessWidget {
       case Tabs.employee:
         return Container();
       case Tabs.users:
-        return const UsersPage();
+        return UsersPage();
       default:
         return Container();
     }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobyte_scbteamchallenge_admin/presentation/pages/auth_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_scbteamchallenge_admin/presentation/pages/auth_page/auth_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu_tile.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 /// Навигационное меню
@@ -44,13 +46,13 @@ class _NavMenuState extends State<NavMenu> {
                 Container(
                   alignment: Alignment.center,
                   padding:
-                      const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+                      EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
                   color: AppColors.red,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Монеточка',
+                        AppStrings.monetochka,
                         style: TextStyle(
                           color: AppColors.white,
                           fontSize: _getTitleSize(),
@@ -70,28 +72,28 @@ class _NavMenuState extends State<NavMenu> {
                   ),
                 ),
                 NavMenuTile(
-                  label: 'Аналитика',
+                  label: AppStrings.analytics,
                   icon: const Icon(Icons.analytics_outlined),
                   onTap: widget.onTap,
                   tabs: Tabs.analytics,
                   isChoosed: widget.tabs == Tabs.analytics,
                 ),
                 NavMenuTile(
-                  label: 'Пользователи',
+                  label: AppStrings.users,
                   icon: const Icon(Icons.people),
                   onTap: widget.onTap,
                   tabs: Tabs.users,
                   isChoosed: widget.tabs == Tabs.users,
                 ),
                 NavMenuTile(
-                  label: 'Сотрудники',
+                  label: AppStrings.employee,
                   icon: const Icon(Icons.people_outline),
                   onTap: widget.onTap,
                   tabs: Tabs.employee,
                   isChoosed: widget.tabs == Tabs.employee,
                 ),
                 NavMenuTile(
-                  label: 'Чат',
+                  label: AppStrings.chat,
                   icon: const Icon(Icons.chat),
                   onTap: widget.onTap,
                   tabs: Tabs.chat,
@@ -100,20 +102,20 @@ class _NavMenuState extends State<NavMenu> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: EdgeInsets.all(20.r),
               child: GestureDetector(
                 onTap: _onTapExit,
                 child: Row(
-                  children: const [
-                    Text(
-                      'Выйти',
+                  children: [
+                    const Text(
+                      AppStrings.exit,
                       style: TextStyle(
                         color: AppColors.grey,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: 2),
-                    Icon(
+                    SizedBox(width: 2.w),
+                    const Icon(
                       Icons.exit_to_app,
                       color: AppColors.grey,
                     ),

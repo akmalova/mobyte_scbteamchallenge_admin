@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/home_page.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
 
 /// Страница авторизации администратора
 class AuthPage extends StatefulWidget {
@@ -31,25 +33,25 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Авторизация'),
+        title: const Text(AppStrings.auth),
         centerTitle: true,
-        backgroundColor: const Color.fromRGBO(44, 60, 86, 1),
+        backgroundColor: AppColors.darkBlue1,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 300,
+              width: 330.w,
               child: TextField(
                 controller: loginController,
                 decoration: InputDecoration(
-                  labelText: 'Логин',
+                  labelText: AppStrings.login,
                   labelStyle: const TextStyle(color: AppColors.grey),
                   floatingLabelStyle: const TextStyle(color: AppColors.grey),
                   filled: true,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(50.r),
                     borderSide: const BorderSide(
                       width: 0,
                       style: BorderStyle.none,
@@ -58,19 +60,19 @@ class _AuthPageState extends State<AuthPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             SizedBox(
-              width: 300,
+              width: 330.w,
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
-                  labelText: 'Пароль',
+                  labelText: AppStrings.password,
                   labelStyle: const TextStyle(color: AppColors.grey),
                   floatingLabelStyle: const TextStyle(color: AppColors.grey),
                   filled: true,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(50.r),
                     borderSide: const BorderSide(
                       width: 0,
                       style: BorderStyle.none,
@@ -79,19 +81,18 @@ class _AuthPageState extends State<AuthPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 30.h),
             ElevatedButton(
               onPressed: _onLoginPressed,
               style: ElevatedButton.styleFrom(
                 textStyle: const TextStyle(fontSize: 20),
                 primary: AppColors.darkBlue1,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 50.w),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(50.r),
                 ),
               ),
-              child: const Text('Войти'),
+              child: const Text(AppStrings.enter),
             ),
           ],
         ),
