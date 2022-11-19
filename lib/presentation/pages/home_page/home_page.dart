@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mobyte_scbteamchallenge_admin/presentation/pages/home_page/widgets/nav_menu.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/app_colors.dart';
@@ -10,7 +11,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isOpen = true;
+  late bool _isOpen;
+
+  @override
+  void initState() {
+    if (defaultTargetPlatform == TargetPlatform.iOS ||
+        defaultTargetPlatform == TargetPlatform.android) {
+      _isOpen = true;
+    } else {
+      _isOpen = true;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

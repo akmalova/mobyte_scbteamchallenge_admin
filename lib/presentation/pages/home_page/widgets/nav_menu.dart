@@ -13,19 +13,29 @@ class NavMenu extends StatefulWidget {
 
 class _NavMenuState extends State<NavMenu> {
   bool _isAnalytics = false;
-  bool _isDirectors = false;
+  bool _isUsers = false;
+  bool _isEmployee = false;
 
   void _onTapAnalytics() {
     setState(() {
       _isAnalytics = !_isAnalytics;
-      _isDirectors = false;
+      _isUsers = false;
+      _isEmployee = false;
     });
   }
 
-  void _onTapDirectors() {
+  void _onTapUsers() {
     setState(() {
-      _isDirectors = !_isDirectors;
+      _isUsers = !_isUsers;
       _isAnalytics = false;
+    });
+  }
+
+  void _onTapEmployee() {
+    setState(() {
+      _isEmployee = !_isEmployee;
+      _isAnalytics = false;
+      _isUsers = false;
     });
   }
 
@@ -42,7 +52,7 @@ class _NavMenuState extends State<NavMenu> {
               padding: const EdgeInsets.symmetric(vertical: 25),
               color: AppColors.red,
               child: const Text(
-                'Название?',
+                'Монеточка',
                 style: TextStyle(
                   color: AppColors.white,
                   fontSize: 20,
@@ -53,14 +63,20 @@ class _NavMenuState extends State<NavMenu> {
             NavMenuTile(
               label: 'Аналитика',
               icon: const Icon(Icons.analytics_outlined),
-              onTap: _onTapDirectors,
-              isChoosed: _isDirectors,
-            ),
-            NavMenuTile(
-              label: 'Директора',
-              icon: const Icon(Icons.people),
               onTap: _onTapAnalytics,
               isChoosed: _isAnalytics,
+            ),
+            NavMenuTile(
+              label: 'Пользователи',
+              icon: const Icon(Icons.people),
+              onTap: _onTapUsers,
+              isChoosed: _isUsers,
+            ),
+            NavMenuTile(
+              label: 'Сотрудники',
+              icon: const Icon(Icons.people_outline),
+              onTap: _onTapEmployee,
+              isChoosed: _isEmployee,
             ),
           ],
         ),
