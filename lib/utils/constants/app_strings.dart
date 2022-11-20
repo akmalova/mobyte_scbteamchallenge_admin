@@ -16,4 +16,5 @@ class AppStrings {
   static const String lock = 'Заблокировать';
   static const String unlock = 'Разблокировать';
   static const String total = 'Всего';
+  static const String nothingFound = 'Ничего не найдено';
 }

@@ -19,3 +19,6 @@ class ListInProgress extends LoginState{}
 
 class ListSuccess extends LoginState{}
 
+class AuthorizedState extends LoginState{}
+class UnAuthorizedState extends LoginState{}
+

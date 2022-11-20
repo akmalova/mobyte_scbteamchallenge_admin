@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
+import 'package:mobyte_scbteamchallenge_admin/domain/data_source/id_repository.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/login_model.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/authorisation_model.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/models/logout_model.dart';
@@ -10,7 +13,7 @@ import 'package:mobyte_scbteamchallenge_admin/utils/models/user_model.dart';
 class LoginService {
   final Dio dio = Dio();
   final String url = 'https://mobytescbteamchallenge.herokuapp.com';
-  late String token;
+  String token = "";
 
   Future<LogInModel> logIn(String login, String password) async {
     Response response = await dio.post(
@@ -37,6 +40,7 @@ class LoginService {
     AuthorisationModel authorisationModel =
         AuthorisationModel(auth['token'], auth['type']);
     return LogInModel(status, userModel, authorisationModel);
+    
   }
 
   Future<LogOutModel> logOut() async {
@@ -53,6 +57,7 @@ class LoginService {
 
   Future<List<UserModel>> usersList(
       String? string, int page, int perPage) async {
+        token = IdRepository().getId()!;
     Response response = await dio.get(
       url + '/api/user',
       queryParameters: string == null
@@ -85,4 +90,5 @@ class LoginService {
     }
     return usersList;
   }
+
 }
