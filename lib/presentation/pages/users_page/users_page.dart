@@ -17,9 +17,11 @@ class UsersPage extends StatefulWidget {
 
 class _UsersPageState extends State<UsersPage> {
   late List<UserModel> _usersList = [];
+  String? string;
+  final TextEditingController _textEditingController = TextEditingController();
 
   void _getUsersList() async {
-    _usersList = await context.read<LoginCubit>().usersList(null, 1, 15);
+    _usersList = await context.read<LoginCubit>().usersList(string, 1, 20);
   }
 
   @override
@@ -38,16 +40,31 @@ class _UsersPageState extends State<UsersPage> {
             return Column(
               children: [
                 AppBarClients(
-                    numberClients: _usersList.length, listClients: const []),
-                UsersTable(
-                  usersList: _usersList,
+                  numberClients: _usersList.length,
+                  listClients: const [],
+                  textEditingController: _textEditingController,
+                  onTap: () {
+                    string = _textEditingController.text;
+                    _getUsersList();
+                  },
                 ),
+                SizedBox(height: 30.h),
+                _usersList.isEmpty
+                    ? const Text(
+                        'Ничего не найдено',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.darkGrey,
+                        ),
+                      )
+                    : UsersTable(
+                        usersList: _usersList,
+                      ),
               ],
             );
           } else {
             return const Center(
-              child:
-                  CircularProgressIndicator(color: AppColors.darkBlue1),
+              child: CircularProgressIndicator(color: AppColors.darkBlue1),
             );
           }
         }),

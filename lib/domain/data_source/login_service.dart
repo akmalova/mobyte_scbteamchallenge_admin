@@ -64,7 +64,6 @@ class LoginService {
       ),
     );
     var map = jsonDecode(response.toString());
-    print(map);
     var users = map['data'];
     List<UserModel> usersList = [];
     for (var user in users) {
