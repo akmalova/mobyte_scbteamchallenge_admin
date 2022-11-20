@@ -4,13 +4,19 @@ import 'package:mobyte_scbteamchallenge_admin/presentation/pages/users_page/user
 import 'package:mobyte_scbteamchallenge_admin/utils/models/tabs.dart';
 
 /// Класс, определяющий какую страницу необходимо отобразить
-class CurrentPage extends StatelessWidget {
+class CurrentPage extends StatefulWidget {
   final Tabs tabs;
+
   const CurrentPage({Key? key, required this.tabs}) : super(key: key);
 
   @override
+  State<CurrentPage> createState() => _CurrentPageState();
+}
+
+class _CurrentPageState extends State<CurrentPage> {
+  @override
   Widget build(BuildContext context) {
-    switch (tabs) {
+    switch (widget.tabs) {
       case Tabs.analytics:
         return Container();
       case Tabs.chat:
@@ -18,7 +24,7 @@ class CurrentPage extends StatelessWidget {
       case Tabs.employee:
         return Container();
       case Tabs.users:
-        return UsersPage();
+        return const UsersPage();
       default:
         return Container();
     }

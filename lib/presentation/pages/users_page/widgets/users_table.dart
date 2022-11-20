@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_colors.dart';
 import 'package:mobyte_scbteamchallenge_admin/utils/constants/app_strings.dart';
-import 'package:mobyte_scbteamchallenge_admin/utils/models/users_data.dart';
+import 'package:mobyte_scbteamchallenge_admin/utils/models/user_model.dart';
 
 /// Таблица данных пользователей
 class UsersTable extends StatefulWidget {
-  final List<UserData> data;
+  final List<UserModel> usersList;
 
-  const UsersTable({Key? key, required this.data}) : super(key: key);
+  const UsersTable({Key? key, required this.usersList}) : super(key: key);
 
   @override
   State<UsersTable> createState() => _UsersTableState();
@@ -43,7 +43,7 @@ class _UsersTableState extends State<UsersTable> {
           DataColumn(
             label: Expanded(
               child: Text(
-                AppStrings.phone,
+                AppStrings.email,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: AppColors.darkGrey,
@@ -96,30 +96,30 @@ class _UsersTableState extends State<UsersTable> {
 
   List<DataRow> _buildRows() {
     List<DataRow> rows = [];
-    for (UserData userData in widget.data) {
+    for (UserModel userModel in widget.usersList) {
       rows.add(
         DataRow(
           cells: <DataCell>[
             DataCell(Text(
-              userData.name,
+              userModel.name,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
-              userData.phone,
+              userModel.email,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
-              userData.email,
+              userModel.phone,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
             )),
             DataCell(Text(
-              userData.registrationDate,
+              userModel.registrationDate,
               style: const TextStyle(
                 color: AppColors.darkGrey,
               ),
@@ -128,10 +128,10 @@ class _UsersTableState extends State<UsersTable> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    userData.isBlocked = !userData.isBlocked;
+                    userModel.isBlocked = !userModel.isBlocked;
                   });
                 },
-                child: userData.isBlocked
+                child: !userModel.isBlocked
                     ? const Text(
                         AppStrings.lock,
                         style: TextStyle(
